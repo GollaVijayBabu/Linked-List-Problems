@@ -8,7 +8,7 @@ namespace Day_14_Problems
 
         public void add(T data)
         {
-            Node<T> node = getNode(data);
+            Node<T> node = new Node<T>(data);
             if (head == null)
                 head = node;
             else
@@ -25,7 +25,7 @@ namespace Day_14_Problems
 
         public void addSort(T data)
         {
-            Node<T> node = getNode(data);
+            Node<T> node = new Node<T>(data);
 
             if (head == null || head.Data >= node.Data)
             {
@@ -46,12 +46,7 @@ namespace Day_14_Problems
             Console.WriteLine("{0} inserted into link list", node.Data);
         }
 
-        private Node<T> getNode(T data)
-        {
-            Node<T> newNode = new Node<T>(data);
-            newNode.next = null;
-            return newNode;
-        }
+       
 
         public void display()
         {
@@ -70,7 +65,7 @@ namespace Day_14_Problems
 
         public void InsertAtFirst(T data)
         {
-            Node<T> node = getNode(data);
+            Node<T> node = new Node<T>(data);
 
             if (head == null)
                 head = node;
@@ -85,7 +80,7 @@ namespace Day_14_Problems
 
         public void InsertAfter(T specifiedNodeData, T data)
         {
-            Node<T> node = getNode(data);
+            Node<T> node = new Node<T>(data);
 
             if (head == null)
                 head = node;
@@ -132,7 +127,7 @@ namespace Day_14_Problems
             while (head != null)
             {
                 if (head.Data.Equals(data))
-                    Console.WriteLine("{0} is foundin liked list.", data);
+                    Console.WriteLine("{0} is foundin linked list.", data);
                 head = head.next;
             }
         }
@@ -161,10 +156,6 @@ namespace Day_14_Problems
     }
 }
 
-
-
-
-
 namespace Day_14_Problems
 {
     public class Node<T>
@@ -176,6 +167,7 @@ namespace Day_14_Problems
         public Node(T data)
         {
             this.Data = data;
+            this.next = null;
         }
 
     }
